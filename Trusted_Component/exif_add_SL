@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# -ge 1 ] && [ -w $1 ]; then
+    exiftool -all= $1
+   # exiftool -config "exif_config" -xmp-xmp:sl="Top Secret" $1
+else
+  echo "Usage: ./exif_add_SL [filename]"
+  exit 1
+fi

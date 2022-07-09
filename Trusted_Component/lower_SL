@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# -ge 1 ] && [ -w $1 ]; then
+  exiftool -config "exif_config" -xmp-xmp:sl="Secret" $1
+  /tbin/setfsl snap_ReceiveJpeg/tmpJpegFile.jpg -a SEC
+else
+  echo "Usage: ./lower_SL [filename]"
+  exit 1
+fi
