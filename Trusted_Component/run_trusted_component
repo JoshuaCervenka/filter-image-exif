@@ -1,0 +1,22 @@
+#!/bin/bash
+echo "Stripping EXIF Data"
+./exif_add_SL snap_ReceiveJpeg/tmpJpegFile.jpg
+
+sleep 1
+exiftool snap_ReceiveJpeg/tmpJpegFile.jpg
+
+/tbin/setfsl -a TS snap_ReceiveJpeg/tmpJpegFile.jpg 
+
+echo "Image SL currently at Top Secret"
+
+./a.out
+
+sleep 1
+
+echo "Downgrading to Secret..."
+./lower_SL snap_ReceiveJpeg/tmpJpegFile.jpg
+sleep 1
+rm snap_ReceiveJpeg/tmpJpegFile.jpg_original
+
+exiftool snap_ReceiveJpeg/tmpJpegFile.jpg
+
